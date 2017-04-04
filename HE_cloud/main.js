@@ -9,8 +9,8 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 Parse.Cloud.define('GetUserLeaderboard', function(request,response) {
-  console.log(request.params.field);
-  console.log(request.params.limit);
+  // console.log(request.params.field);
+  // console.log(request.params.limit);
 
   var query = new Parse.Query(Parse.User);
   query.descending(request.params.field);
@@ -26,7 +26,7 @@ Parse.Cloud.define('GetUserLeaderboard', function(request,response) {
         var score = thisUser.get(request.params.field);
         var costume = thisUser.get('costume') != undefined? thisUser.get('costume') : '';
         if (score <= 0) continue; 
-        // str += ">" + i.toString() + "<" + userName + "<" + imgUrl + "<" + score.toString() + "<" + costume;
+        str += ">" + i.toString() + "<" + userName + "<" + score.toString() + "<" + costume;
       }
       response.success(str);
     }
