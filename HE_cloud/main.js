@@ -3,6 +3,11 @@
     - limit : int, how many results to return
 */
 
+Parse.Cloud.define('hello', function(req, res) {
+  res.success('Hi');
+});
+
+
 Parse.Cloud.define('GetUserLeaderboard', function(request,response) {
   var query = new Parse.Query(Parse.User);
   query.descending(request.params.field);
